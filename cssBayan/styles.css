@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    background-color: #f4d597;
+}
+
+.wrapper{
+    width: calc(100vw - 2em);
+    margin:1em auto;
+}
+h1{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+ul{
+    width: auto;
+    height: auto;
+}
+
+li{
+    border-top: 1px solid #453517;
+    width: auto;
+    list-style-type: none;
+    margin-top: 1em;
+}
+.meme_title{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 0;
+}
+
+.expand_icon{
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-image: url('img/plus-solid.svg');
+    background-size: cover;
+}
+
+img{
+    width: 100%;
+}
