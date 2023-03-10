@@ -3,17 +3,23 @@
     padding: 0;
 }
 body{
-    width: 100vw;
+    width: 100%;
     background-color: #f4d597;
 }
 
 .wrapper{
-    width: calc(100vw - 2em);
-    margin:1em auto;
+    width: calc(100vw - 4em);
+    margin:2em auto;
+
 }
 h1{
     font-size: 2em;
     font-weight: bold;
+}
+h3{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #212121;
 }
 
 ul{
@@ -26,12 +32,14 @@ li{
     list-style-type: none;
 }
 a{
+    display: flex;
+    flex-direction: column;
     color: #000;
     text-decoration: none;
 
 }
 li:first-child{
-    margin-top: 1em;
+    margin-top: 1.5em;
 }
 .meme_title{
     display: flex;
@@ -48,6 +56,7 @@ li:first-child{
 }
 
 img{
+    align-self: center;
     width: 0%;
     padding-bottom: 0.5em;
     transition: width .3s;
@@ -56,6 +65,61 @@ img{
 img:target{
     width: 100%;
     transition: width 1s;
+}
+a:visited span{
+    width: 100px;
+}
+
+@media(min-width: 820px){
+    .wrapper{
+        width: 30em;
+        margin:3em auto;
+    }
+    h1{
+        font-size: 2.6em;
+        font-weight: bold;
+    }
+    h3{
+        font-size: 1.6em;
+        font-weight: bold;
+    }
+
+    .expand_icon{
+        width: 1.6em;
+        height: 1.6em;
+    }
+    img:target{
+        width: 80%;
+    }
+
+}
+
+@media(min-width: 1420px){
+    .wrapper{
+        width: 60em;
+        margin:3em auto;
+    }
+    h1{
+        font-size: 3em;
+        font-weight: bold;
+    }
+    h3{
+        font-size: 2em;
+        font-weight: bold;
+    }
+    .expand_icon{
+        width: 2em;
+        height: 2em;
+        visibility: hidden;
+    }
+    img:target{
+        width: 60%;
+    }
+
+    ul:hover .expand_icon{
+        visibility: visible;
+    }
+    
 }
 
 
