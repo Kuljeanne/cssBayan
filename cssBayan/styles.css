@@ -18,13 +18,19 @@ h1{
 
 ul{
     width: auto;
-    height: auto;
 }
 
 li{
     border-top: 1px solid #453517;
     width: auto;
     list-style-type: none;
+}
+a{
+    color: #000;
+    text-decoration: none;
+
+}
+li:first-child{
     margin-top: 1em;
 }
 .meme_title{
@@ -42,5 +48,16 @@ li{
 }
 
 img{
-    width: 100%;
+    width: 0%;
+    padding-bottom: 0.5em;
+    transition: width .3s;
 }
+
+img:target{
+    width: 100%;
+    transition: width 1s;
+}
+
+
+
+
