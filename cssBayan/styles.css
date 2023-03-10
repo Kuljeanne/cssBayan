@@ -18,8 +18,8 @@ h1{
 }
 h3{
     font-size: 1.2em;
-    font-weight: bold;
-    color: #212121;
+    font-weight: 800;
+    color: #a21919;
 }
 
 ul{
@@ -51,7 +51,8 @@ li:first-child{
     display: inline-block;
     width: 1em;
     height: 1em;
-    background-image: url('img/plus-solid.svg');
+    background-image: url('img/cross-close.svg');
+    transform: rotate(45deg);
     background-size: cover;
 }
 
@@ -88,16 +89,23 @@ a:visited span{
         width: 1.6em;
         height: 1.6em;
     }
-    img:target{
+    li:target img{
         width: 80%;
     }
+    li:target .expand_icon{
+        transform: rotate(0deg);
+    }
+    li:target h3{
+        color:#212121
+    }
+
 
 }
 
-@media(min-width: 1420px){
+@media(min-width: 1920px){
     .wrapper{
         width: 60em;
-        margin:3em auto;
+        margin: 3em auto;
     }
     h1{
         font-size: 3em;
@@ -111,14 +119,38 @@ a:visited span{
         width: 2em;
         height: 2em;
         visibility: hidden;
+        transition: all .6s;
     }
-    img:target{
+    li:target img{
         width: 60%;
     }
 
     ul:hover .expand_icon{
         visibility: visible;
     }
+
+    ul:hover h3{
+        color: #212121
+    }
+
+    li:hover img{
+        width: 60%;
+        transition: width 1s;
+    }
+    li:hover .expand_icon{
+        transform: rotate(0deg);
+        transition: all .6s;
+    }
+    a:active img{
+        filter: hue-rotate(90deg)
+    }
+    a:active h3{
+        color: #a21919;
+    }
+    a:active .expand_icon{
+        background-image: url('img/cross-active.svg');
+    }
+
     
 }
 
