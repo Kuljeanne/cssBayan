@@ -131,7 +131,7 @@ li:target h3 {
 
 @media(min-width: 820px) {
     .wrapper {
-        width: 30em;
+        width: 45em;
         margin: 3em auto;
     }
 
@@ -162,7 +162,7 @@ li:target h3 {
 
 @media(min-width: 1920px) {
     .wrapper {
-        width: 60em;
+        width: 70em;
         margin: 3em auto;
     }
 
@@ -196,49 +196,56 @@ li:target h3 {
         width: 60%;
     }
 
-    ul:hover .expand_icon {
-        visibility: visible;
-    }
 
-    ul:hover h3, ul:hover li:target~li h3 {
-        color: #212121
-    }
-.meme_item:last-child:hover img {
-    width: 60%;
 
 }
 
-.meme_item:last-child:active h3 {
-    color: #a21919;
-}
+@media(hover: hover){
 
-.meme_item:last-child:hover .expand_icon {
-    transform: rotate(0deg);
-    transition: all .6s;
-}
-    li:hover img {
+        /* hover */
+
+        ul:hover .expand_icon {
+            visibility: visible;
+        }
+    
+        ul:hover h3, ul:hover li:target~li h3 {
+            color: #212121
+        }
+    .meme_item:last-child:hover img {
         width: 60%;
-        transition: width 1s;
+    
     }
-
-    li:hover .expand_icon {
+    
+    .meme_item:last-child:active h3 {
+        color: #a21919;
+    }
+    
+    .meme_item:last-child:hover .expand_icon {
         transform: rotate(0deg);
         transition: all .6s;
     }
-
-    /* повторное нажатие на открытую */
-
-    a:active img {
-        filter: hue-rotate(90deg)
-    }
-
-    a:active h3 {
-        color: #a21919;
-    }
-
-    a:active .expand_icon {
-        background-image: url('img/cross-active.svg');
-    }
-
+        li:hover img {
+            width: 60%;
+            transition: width 1s;
+        }
+    
+        li:hover .expand_icon {
+            transform: rotate(0deg);
+            transition: all .6s;
+        }
+    
+        /* повторное нажатие на открытую */
+    
+        a:active img {
+            filter: hue-rotate(90deg)
+        }
+    
+        a:active h3 {
+            color: #a21919;
+        }
+    
+        a:active .expand_icon {
+            background-image: url('img/cross-active.svg');
+        }
 
 }
