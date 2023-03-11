@@ -1,159 +1,227 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     width: 100%;
     background-color: #f4d597;
 }
 
-.wrapper{
+.wrapper {
     width: calc(100vw - 4em);
-    margin:2em auto;
+    margin: 2em auto;
 
 }
-h1{
+
+h1 {
     font-size: 2em;
     font-weight: bold;
 }
-h3{
+
+h3 {
     font-size: 1.2em;
     font-weight: 800;
     color: #a21919;
 }
 
-ul{
+ul {
     width: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    scroll-behavior: smooth;
 }
 
-li{
+li {
     border-top: 1px solid #453517;
     width: auto;
     list-style-type: none;
 }
-a{
+
+a {
     display: flex;
     flex-direction: column;
     color: #000;
     text-decoration: none;
 
 }
-li:first-child{
+
+li:last-child {
     margin-top: 1.5em;
 }
-.meme_title{
+
+.meme_title {
     display: flex;
     justify-content: space-between;
     padding: 0.5em 0;
 }
 
-.expand_icon{
+.expand_icon {
     display: inline-block;
     width: 1em;
     height: 1em;
     background-image: url('img/cross-close.svg');
     transform: rotate(45deg);
+    transition: all .6s;
     background-size: cover;
 }
 
-img{
+img {
     align-self: center;
     width: 0%;
     padding-bottom: 0.5em;
     transition: width .3s;
 }
 
-img:target{
+/* первый элемент по умолчанию */
+li:last-child img {
     width: 100%;
     transition: width 1s;
 }
-a:visited span{
-    width: 100px;
+
+li:last-child .expand_icon {
+    transform: rotate(0deg);
+    transition: all .6s;
 }
 
-@media(min-width: 820px){
-    .wrapper{
+li:last-child h3 {
+    color: #212121
+}
+
+/* раскрытие по нажатию */
+
+/* сначала закрытие по кмолчанию открытого */
+
+li:target~li img {
+    width: 0%;
+
+}
+
+li:target~li h3 {
+    color: #a21919;
+}
+
+li:target~li .expand_icon {
+    transform: rotate(45deg);
+    transition: all .6s;
+}
+
+/* открытие нового */
+
+li:target img {
+    width: 100%;
+    transition: width 1s;
+}
+
+li:target .expand_icon {
+    transform: rotate(0deg);
+    transition: all .6s;
+}
+
+li:target h3 {
+    color: #212121
+}
+
+
+
+
+@media(min-width: 820px) {
+    .wrapper {
         width: 30em;
-        margin:3em auto;
+        margin: 3em auto;
     }
-    h1{
+
+    h1 {
         font-size: 2.6em;
         font-weight: bold;
     }
-    h3{
+
+    h3 {
         font-size: 1.6em;
         font-weight: bold;
     }
 
-    .expand_icon{
+    .expand_icon {
         width: 1.6em;
         height: 1.6em;
     }
-    li:target img{
+
+    li:last-child img {
         width: 80%;
     }
-    li:target .expand_icon{
-        transform: rotate(0deg);
-    }
-    li:target h3{
-        color:#212121
-    }
 
+    li:target img {
+        width: 80%;
+    }
 
 }
 
-@media(min-width: 1920px){
-    .wrapper{
+@media(min-width: 1920px) {
+    .wrapper {
         width: 60em;
         margin: 3em auto;
     }
-    h1{
+
+    h1 {
         font-size: 3em;
         font-weight: bold;
     }
-    h3{
+
+    h3 {
         font-size: 2em;
         font-weight: bold;
     }
-    .expand_icon{
+
+    .expand_icon {
         width: 2em;
         height: 2em;
         visibility: hidden;
         transition: all .6s;
     }
-    li:target img{
+
+    li:last-child img {
         width: 60%;
     }
 
-    ul:hover .expand_icon{
-        visibility: visible;
+    li:last-child .expand_icon {
+        color: #a21919;
     }
 
-    ul:hover h3{
+    li:target img {
+        width: 60%;
+    }
+
+    ul:hover .expand_icon {
+        visibility: visible;
+    }
+/* вот тут добовить */
+    ul:hover h3, ul:hover li:target~li h3 {
         color: #212121
     }
 
-    li:hover img{
+    li:hover img {
         width: 60%;
         transition: width 1s;
     }
-    li:hover .expand_icon{
+
+    li:hover .expand_icon {
         transform: rotate(0deg);
         transition: all .6s;
     }
-    a:active img{
+
+    /* повторное нажатие на открытую */
+
+    a:active img {
         filter: hue-rotate(90deg)
     }
-    a:active h3{
+
+    a:active h3 {
         color: #a21919;
     }
-    a:active .expand_icon{
+
+    a:active .expand_icon {
         background-image: url('img/cross-active.svg');
     }
 
-    
+
 }
-
-
-
-
