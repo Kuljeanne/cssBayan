@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    background-color: #f4d597;
+
+}
+
+.wrapper {
+    width: calc(100vw - 4em);
+    margin: 2em auto;
+
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 800;
+    color: #a21919;
+}
+
+ul {
+    width: auto;
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+li {
+    border-top: 1px solid #453517;
+    width: auto;
+    list-style-type: none;
+}
+
+a {
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    text-decoration: none;
+
+}
+
+li:last-child {
+    margin-top: 1.5em;
+}
+
+.meme_title {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 0;
+}
+
+.expand_icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-image: url('img/cross-close.svg');
+    transform: rotate(45deg);
+    transition: all .6s;
+    background-size: cover;
+}
+
+img {
+    align-self: center;
+    width: 0%;
+    padding-bottom: 0.5em;
+    transition: width .3s;
+}
+
+/* первый элемент по умолчанию */
+li:last-child img {
+    width: 100%;
+    transition: width .6s;
+}
+
+li:last-child .expand_icon {
+    transform: rotate(0deg);
+    transition: all .6s;
+}
+
+li:last-child h3 {
+    color: #212121
+}
+
+/* раскрытие по нажатию */
+
+/* сначала закрытие по кмолчанию открытого */
+
+li:target~li:last-child img {
+    width: 0%;
+
+}
+
+li:target~li:last-child h3 {
+    color: #a21919;
+}
+
+li:target~li:last-child .expand_icon {
+    transform: rotate(45deg);
+    transition: all .6s;
+}
+
+/* открытие нового */
+
+li:target img {
+    width: 100%;
+    transition: width .6s;
+}
+
+li:target .expand_icon {
+    transform: rotate(0deg);
+    transition: all .6s;
+}
+
+li:target h3 {
+    color: #212121
+}
+
+
+
+
+@media(min-width: 820px) {
+    .wrapper {
+        width: 45em;
+        margin: 3em auto;
+    }
+
+    h1 {
+        font-size: 2.6em;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 1.6em;
+        font-weight: bold;
+    }
+
+    .expand_icon {
+        width: 1.6em;
+        height: 1.6em;
+    }
+
+    li:last-child img {
+        width: 60%;
+    }
+
+    li:target img {
+        width: 60%;
+    }
+
+}
+
+@media(min-width: 1920px) {
+    .wrapper {
+        width: 70em;
+        margin: 3em auto;
+    }
+
+    h1 {
+        font-size: 3em;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    .expand_icon {
+        width: 2em;
+        height: 2em;
+        visibility: hidden;
+
+
+    }
+
+    li:last-child img {
+        width: 60%;
+    }
+
+    li:last-child .expand_icon {
+        color: #a21919;
+    }
+
+    li:target img {
+        width: 60%;
+    }
+
+
+
+}
+
+@media(hover: hover){
+
+        /* hover */
+
+        ul:hover .expand_icon {
+            visibility: visible;
+        }
+    
+        ul:hover h3, ul:hover li:target~li h3 {
+            color: #212121
+        }
+    .meme_item:last-child:hover img {
+        width: 60%;
+    
+    }
+    
+    .meme_item:last-child:active h3 {
+        color: #a21919;
+    }
+    
+    .meme_item:last-child:hover .expand_icon {
+        transform: rotate(0deg);
+        transition: all .6s;
+    }
+        li:hover img {
+            width: 60%;
+            transition: width 1s;
+        }
+    
+        li:hover .expand_icon {
+            transform: rotate(0deg);
+            transition: all .6s;
+        }
+    
+        /* повторное нажатие на открытую */
+    
+        a:active img {
+            filter: hue-rotate(90deg)
+        }
+    
+        a:active h3 {
+            color: #a21919;
+        }
+    
+        a:active .expand_icon {
+            background-image: url('img/cross-active.svg');
+        }
+
+}
